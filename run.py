@@ -1,3 +1,4 @@
+import random as rand
 
 class Board:
     """
@@ -20,7 +21,8 @@ def draw_board(board, board_size):
     for i in range(board_size):
         print("     |"*board_size)
         for j in range(board_size):
-            if (board[i][j] < 10):
+            #If the number in the board has 1 digit
+            if (len(str(board[i][j])) < 2):
                 print(f"  {board[i][j]}  |", end="")
             else:
                 print(f"  {board[i][j]} |", end="")
@@ -42,13 +44,66 @@ def validate_board_size(board_input):
         print("Please enter a whole number")
         return False
 
+def validate_and_place_counter(marker_pos, board, player_symbol, player_1):
+    try:
+        user_pos = int(marker_pos)
+        board_row = user_pos // board.board_size
+        board_col = user_pos % board.board_size
 
-print("Welcome to Noughts and Crosses!\n")
+        if (board.board[board_row][board_col] != "O" and board.board[board_row][board_col] != "X"):
+            board.board[board_row][board_col] = player_symbol
+            return True
+        else:
+            if (player_1):
+                print("Chosen selection is already occupied. Please choose an unnoccupied number")
+            return False
+    except:
+        print("Please enter a whole number on the board where you would like to place your marker")
+        return False
 
-valid_board = False
-while(not valid_board):
-    board_input = input("Please enter how large you want the board to be (minimum 3, maximum 9) - ")
-    valid_board = validate_board_size(board_input)
 
-board = Board(int(board_input))
-draw_board(board.board, board.board_size)
+def main():
+
+    print("Welcome to Noughts and Crosses!\n")
+    valid_board = False
+    while(not valid_board):
+        board_input = input("Please enter how large you want the board to be (minimum 3, maximum 9) - ")
+        valid_board = validate_board_size(board_input)
+    board = Board(int(board_input))  
+
+    player = True
+    counters_placed = 0
+
+    #While there are still unnoccupied spaces on the board
+    while (counters_placed < board.board_size**2):
+        draw_board(board.board, board.board_size)
+        player_symbol = ""
+        valid_placement = False
+        
+        if (player):
+            player_symbol = "O"
+            while (not valid_placement):
+                marker_pos = input("\nPlease choose the number on the board where you want your marker to be placed - ")
+                valid_placement = validate_and_place_counter(marker_pos, board, player_symbol, player)
+        else:
+            player_symbol = "X"
+            while (not valid_placement):
+                marker_pos = rand.randint(0, board.board_size**2 - 1)
+                valid_placement = validate_and_place_counter(marker_pos, board, player_symbol, player)
+            print(f"\nComputer chose - {marker_pos}")
+        
+        player = not player
+        counters_placed += 1
+
+    draw_board(board.board, board.board_size)
+    print("No more spaces on the board. It's a draw!")
+            
+
+        
+    
+
+
+     
+
+
+main()
