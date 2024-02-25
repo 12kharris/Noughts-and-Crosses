@@ -67,36 +67,32 @@ def check_winner(board, board_size):
 
     #horizontal check   
     for i in range(board_size):
-        horizontal_values = []
+        horizontal_values = set()
         for j in range(board_size):
-            horizontal_values.append(board[i][j])
-        horizontal_unq = set(horizontal_values)
-        if (len(horizontal_unq) == 1): # a set contains unique values. So if there is only 1 value, the line is complete
+            horizontal_values.add(board[i][j])
+        if (len(horizontal_values) == 1): # a set contains unique values. So if there is only 1 value, the line is complete
             return True
 
     #vertical check    
     for i in range(board_size):
-        vertical_values = []
+        vertical_values = set()
         for j in range(board_size):
-            vertical_values.append(board[j][i])
-        vertical_unq = set(vertical_values)
-        if (len(vertical_unq) == 1):
+            vertical_values.add(board[j][i])
+        if (len(vertical_values) == 1):
             return True
 
     #diagonal check top L to bottom R
-    diagonal_LR_values = []
+    diagonal_LR_values = set()
     for i in range(board_size):
-        diagonal_LR_values.append(board[i][i])
-    diagonal_LR_unq = set(diagonal_LR_values)
-    if(len(diagonal_LR_unq) == 1):
+        diagonal_LR_values.add(board[i][i])
+    if(len(diagonal_LR_values) == 1):
         return True
 
     #diagonal check top R to bottom L
-    diagonal_RL_values = []
+    diagonal_RL_values = set()
     for i in range(board_size):
-        diagonal_RL_values.append(board[i][board_size - 1 - i])
-    diagonal_RL_unq = set(diagonal_RL_values)
-    if(len(diagonal_RL_unq) == 1):
+        diagonal_RL_values.add(board[i][board_size - 1 - i])
+    if(len(diagonal_RL_values) == 1):
         return True
 
     return False
