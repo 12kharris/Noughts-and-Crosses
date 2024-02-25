@@ -39,11 +39,27 @@ Noughts and Crosses is a python command line interface (CLI) program where a use
 - The CPU player also is not aware of the win condition which is shown blatently to the player in the event they have 2 markers in a line and the CPU does not block their line completion. Programming the CPU player to be more aware of the current state of the board, in combination with the previous point, would make the game more engaging.
 - Instead of using the CLI, a graphical display would allow for better differentiation between the player markers and the board square numbers. This would also open the door for using the mouse to select where to place a marker.
 
+
 ## Development Process
+- Before beginning the development process, a flow chart of the application flow and key logical steps was created to provide a clear structure for the program.
+- The first step of development was getting a 3x3 board to display in the terminal and then adding the functionality to make a board of any size display without having to hard code different board sizes into the print statements.
+- The next step was adding the ability to choose a number on the board and have the board update the display with the chosen square now containing the counter.
+- After this was successful, validating the user input was the next step.
+- Once a single user could only choose valid placements, the CPU player was added.
+- The final major development step was to create the logic to check if one of the players had one the game, or if it was a draw.
+- Beyond this, various refactoring and comments were the final steps in development.
 
 
 ## Deployment Process
 
+The site was deployed using Heroku. The live link can be found here - https://noughts-and-crosses-204025256cf6.herokuapp.com/
+
+
+### Deployment Steps
+- Use the command "pip3 freeze > requirements.txt" to add all dependencies to the requirements.txt file.
+- Push all changes to GitHub.
+Create a new app on Heroku and on the settings tab, add a config var with the key "PORT" and the value "8000".
+- Deploy the desired branch.
 
 
 ## Testing 
@@ -55,36 +71,9 @@ Invalid board placements were tested such as an already occupied square, a numbe
 
 ### Validator Testing 
 
-- HTML
-    - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2F12kharris.github.io%2FGeneral-Knowledge-Quiz%2F)
-- CSS
-    - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2F12kharris.github.io%2FGeneral-Knowledge-Quiz%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
-- JavaScript
-    - Some warnings were found but the vast majority were due to formatting when passing through the official [Jshint validator](https://jshint.com/)
-    - There are 12 functions in this file.
-    - Function with the largest signature take 7 arguments, while the median is 0.5.
-    - Largest function has 35 statements in it, while the median is 7.5.
-    - The most complex function has a cyclomatic complexity value of 12 while the median is 1.5
- 
-
-## Deployment
-
-- The site was deployed to GitHub pages.
-
-The live link can be found here - https://12kharris.github.io/General-Knowledge-Quiz/
 
 
 ## Credits 
 
-The use of data types for tracking which answer is correct was inspired from the Code Institute Love Maths walkthrough project. 
-The use of conditions in CSS styles was taken from https://stackoverflow.com/questions/26754497/css-disable-hover-effect. 
-
-The additional info for each question was taken from Wikipedia and all info sections have a link to the specific source provided.
-
-Some images were taken from the royalty free website Pixabay https://pixabay.com/ . 
-The remaining images were taken from the following sites:
-- https://stock.adobe.com/uk/search?k=babylon+garden 
-- https://www.istockphoto.com/search/2/image-film?phrase=keratin+protein 
-- https://www.reddit.com/r/Cyberpunk/comments/f0yxqt/neuromancer_by_william_gibson_pioneer_of_cyberpunk/ 
-- https://en.wikipedia.org/wiki/Krypton 
-- https://classicalwisdom.com/mythology/athena-in-ancient-literature/ 
+- Using a set to get the unique characters on a line on the board was influenced by the following Stack Overflow post - https://stackoverflow.com/questions/12897374/get-unique-values-from-a-list-in-python
+- The Code Institute Python Essentials Template was used for this project - https://github.com/Code-Institute-Org/p3-template
