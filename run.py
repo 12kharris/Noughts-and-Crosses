@@ -59,6 +59,10 @@ def validate_and_place_counter(marker_pos, board, player_symbol, player_1):
         board_row = user_pos // board.board_size
         board_col = user_pos % board.board_size
 
+        if (user_pos < 0):
+            print("Please enter a whole number on the board where you want to place your marker")
+            return False
+
         if (board.board[board_row][board_col] != "O" and board.board[board_row][board_col] != "X"):
             board.board[board_row][board_col] = player_symbol
             return True
