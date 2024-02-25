@@ -67,7 +67,7 @@ def validate_and_place_counter(marker_pos, board, player_symbol, player_1):
                 print("Chosen selection is already occupied. Please choose an unnoccupied number")
             return False
     except:
-        print("Please enter a whole number on the board where you would like to place your marker")
+        print("Please enter a whole number on the board where you want to place your marker")
         return False
 
 def check_winner(board, board_size):
