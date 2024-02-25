@@ -124,7 +124,7 @@ def run_game_loop(board):
         if (player):
             player_symbol = "O"
             while (not valid_placement):
-                marker_pos = input("\nPlease choose the number on the board where you want your marker to be placed - ")
+                marker_pos = input("\nPlease choose the number on the board where you want your marker to be placed - \n")
                 valid_placement = validate_and_place_counter(marker_pos, board, player_symbol, player)
         else:
             player_symbol = "X"
@@ -154,7 +154,7 @@ def main():
     print("Welcome to Noughts and Crosses!\n")
     valid_board = False
     while(not valid_board):
-        board_input = input("Please enter how large you want the board to be (minimum 3, maximum 9) - ")
+        board_input = input("Please enter how large you want the board to be (minimum 3, maximum 9) - \n")
         valid_board = validate_board_size(board_input)
         
     board = Board(int(board_input))  
