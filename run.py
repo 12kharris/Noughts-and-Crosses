@@ -97,16 +97,7 @@ def check_winner(board, board_size):
 
     return False
 
-def main():
-
-    print("Welcome to Noughts and Crosses!\n")
-    valid_board = False
-    while(not valid_board):
-        board_input = input("Please enter how large you want the board to be (minimum 3, maximum 9) - ")
-        valid_board = validate_board_size(board_input)
-    board = Board(int(board_input))  
-    draw_board(board.board, board.board_size)
-
+def run_game_loop(board):
     player = True
     counters_placed = 0
 
@@ -139,8 +130,24 @@ def main():
         player = not player
         counters_placed += 1
 
+    #fall out of loop when no more spaces on board
     draw_board(board.board, board.board_size)
     print("No more spaces on the board. It's a draw!")
+
+
+def main():
+
+    print("Welcome to Noughts and Crosses!\n")
+    valid_board = False
+    while(not valid_board):
+        board_input = input("Please enter how large you want the board to be (minimum 3, maximum 9) - ")
+        valid_board = validate_board_size(board_input)
+    board = Board(int(board_input))  
+    draw_board(board.board, board.board_size)
+
+    run_game_loop(board)
+
+    
             
 
         
