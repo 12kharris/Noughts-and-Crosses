@@ -18,6 +18,9 @@ class Board:
             self.board.append(board_line)
 
 def draw_board(board, board_size):
+    """
+    Draw the current state of the board
+    """
     for i in range(board_size):
         print("     |"*board_size)
         for j in range(board_size):
@@ -31,6 +34,9 @@ def draw_board(board, board_size):
             print("-----|"*board_size)
     
 def validate_board_size(board_input):
+    """
+    Validate that the desired board size is between 3x3 and 9x9
+    """
     try:
         board_size = int(board_input)
         if (board_size > 9):
@@ -45,6 +51,9 @@ def validate_board_size(board_input):
         return False
 
 def validate_and_place_counter(marker_pos, board, player_symbol, player_1):
+    """
+    Check if a counter can be placed in the chosen position
+    """
     try:
         user_pos = int(marker_pos)
         board_row = user_pos // board.board_size
@@ -62,8 +71,11 @@ def validate_and_place_counter(marker_pos, board, player_symbol, player_1):
         return False
 
 def check_winner(board, board_size):
+    """
+    Check the current state of the board and if one of the players has won
+    """
     #credit to https://stackoverflow.com/questions/12897374/get-unique-values-from-a-list-in-python
-    #for how to get unique items in a list
+    #for using a set for unique counts
 
     #horizontal check   
     for i in range(board_size):
@@ -98,6 +110,9 @@ def check_winner(board, board_size):
     return False
 
 def run_game_loop(board):
+    """
+    The main game loop. Runs until win condition met or board filled
+    """
     player = True
     counters_placed = 0
 
@@ -136,12 +151,12 @@ def run_game_loop(board):
 
 
 def main():
-
     print("Welcome to Noughts and Crosses!\n")
     valid_board = False
     while(not valid_board):
         board_input = input("Please enter how large you want the board to be (minimum 3, maximum 9) - ")
         valid_board = validate_board_size(board_input)
+        
     board = Board(int(board_input))  
     draw_board(board.board, board.board_size)
 
