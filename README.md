@@ -3,7 +3,7 @@
 Noughts and Crosses is a python command line interface (CLI) program where a user can play against a computer at the classic game of the same name. The aim of the game is to take turns placing your symbol (either an 'O' or 'X') on the board with the aim of creating a whole line on the board (including diagonal) with your symbol. The game is normally played on a 3x3 grid but the user can choose a grid size between 3x3 and 9x9.
 
 
-![Responsive Mockup]()
+![Responsive Mockup](https://github.com/12kharris/Noughts-and-Crosses/blob/main/README-Images/NO%20-%20responsive.png?raw=true)
 
 ## Features 
 
@@ -13,12 +13,14 @@ Noughts and Crosses is a python command line interface (CLI) program where a use
 
   - The user can choose a board size between 3x3 and 9x9.
   - The board will be created and displayed with the given dimensions using only one function in the code. 
-  ![different board sizes]()
+  ![3x3](https://github.com/12kharris/Noughts-and-Crosses/blob/main/README-Images/NO%20-%203x3.png?raw=true)
+  ![6x6](https://github.com/12kharris/Noughts-and-Crosses/blob/main/README-Images/NO%20-%206x6.png?raw=true)
 
 - __Validate User Input__
   - The user must enter an integer which corresponds to the square on the board where they would like their symbol to be placed. 
   - If the user inputs an invalid placement (such as a number off the board or a non-numeric) or the place the user has chosen is already occupied, a message will display describing the issue and the user will be prompted to try again.
-  ![invalid user input]()
+  ![str user input](https://github.com/12kharris/Noughts-and-Crosses/blob/main/README-Images/NO%20-%20str%20input.png?raw=true)
+  ![neg user input](https://github.com/12kharris/Noughts-and-Crosses/blob/main/README-Images/NO%20-%20negative%20input.png?raw=true)
 
 - __The Computer Player__
   - The user plays against the computer (or CPU)
@@ -29,7 +31,14 @@ Noughts and Crosses is a python command line interface (CLI) program where a use
   - A win message displays for the victorious player in the event there is a winner
   - The game can also end when both players have filled up the entire board and no one managed to create a line of their marker. 
   - In the above case, a draw message will be displayed, as well as the final state of the board.
-  ![various end conditions]()
+  ![hor win](https://github.com/12kharris/Noughts-and-Crosses/blob/main/README-Images/NO%20-%20hor%20win.png?raw=true)
+  ![ver win](https://github.com/12kharris/Noughts-and-Crosses/blob/main/README-Images/NO%20-%20Ver%20win.png?raw=true)
+  ![LR win](https://github.com/12kharris/Noughts-and-Crosses/blob/main/README-Images/NO%20-%20diag%20LR%20win.png?raw=true)
+  ![RL win](https://github.com/12kharris/Noughts-and-Crosses/blob/main/README-Images/NO%20-%20diag%20RL%20win.png?raw=true)
+  ![CPU win](https://github.com/12kharris/Noughts-and-Crosses/blob/main/README-Images/NO%20-%20CPU%20win.png?raw=true)
+
+### Known Bugs
+The only possible bug remaining is entering a valid placement and the game freezing. This has happened a couple of times during testing but I could not reproduce the bug when running the program locally so whether this is a genuine bug in the code or an issue with the deployed program remains unknown.
 
 
 ### Features Left to Implement
@@ -39,9 +48,9 @@ Noughts and Crosses is a python command line interface (CLI) program where a use
 - The CPU player also is not aware of the win condition which is shown blatently to the player in the event they have 2 markers in a line and the CPU does not block their line completion. Programming the CPU player to be more aware of the current state of the board, in combination with the previous point, would make the game more engaging.
 - Instead of using the CLI, a graphical display would allow for better differentiation between the player markers and the board square numbers. This would also open the door for using the mouse to select where to place a marker.
 
-
 ## Development Process
 - Before beginning the development process, a flow chart of the application flow and key logical steps was created to provide a clear structure for the program.
+![flow chart](https://github.com/12kharris/Noughts-and-Crosses/blob/main/README-Images/Noughts%20and%20Crosses%20Program%20(1).png?raw=true)
 - The first step of development was getting a 3x3 board to display in the terminal and then adding the functionality to make a board of any size display without having to hard code different board sizes into the print statements.
 - The next step was adding the ability to choose a number on the board and have the board update the display with the chosen square now containing the counter.
 - After this was successful, validating the user input was the next step.
